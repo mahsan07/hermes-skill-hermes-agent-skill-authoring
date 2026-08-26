@@ -1,115 +1,73 @@
-<p align="center">
-  <img src="assets/system-map.svg" alt="Detailed system map for Hermes Agent Skill Authoring" width="100%">
-</p>
-
 # Hermes Agent Skill Authoring
 
 > Create focused Hermes SKILL.md packages with valid metadata and reusable workflows.
 
-This repository packages a single, reusable Hermes skill as a documentation-first public reference. It explains the problem, operating contract, safety boundaries, expected evidence, and example usage without claiming a bundled runtime that is not present.
+This repository packages one focused Hermes skill as a public, documentation-first capability. The blueprint below explains the actual operating surfaces, control points, failure paths, and evidence expected from a trustworthy run.
 
-## Why this exists
+![Detailed systems blueprint for Hermes Agent Skill Authoring](assets/system-blueprint.png)
 
-Agent work becomes unreliable when scope, handoffs, approval boundaries, and proof of completion remain implicit. **Hermes Agent Skill Authoring** turns that work into an explicit sequence with visible inputs, outputs, review points, and completion evidence.
+## The problem it solves
 
-## Why the repository has this name
+Agent work becomes unreliable when scope, handoffs, approval boundaries, and proof of completion remain implicit.
 
-The shared `hermes-skill-` prefix identifies this as a portable Hermes workflow package. `hermes-agent-skill-authoring` names the capability directly—hermes agent skill authoring—so the repository remains searchable and understandable outside the original AI-OS workspace. The public title is **Hermes Agent Skill Authoring**.
+## System components
 
-## At a glance
+- **User trigger examples**
+- **Skill contract**
+- **SKILL.md frontmatter**
+- **Workflow instructions**
+- **Validation package**
 
-| Question | Answer |
-| --- | --- |
-| What is it? | Governed agent workflow packaged as a reusable Hermes `SKILL.md`. |
-| What does it do? | Create focused Hermes SKILL.md packages with valid metadata and reusable workflows. |
-| Who is it for? | Builders, operators, and reviewers who want a repeatable, inspectable workflow. |
-| What is delivered? | A skill contract, examples, safety guidance, release checks, and rendered SVG diagrams. |
-| Runtime status | Documentation-first reference package; connect it to the tools available in your own environment. |
+## Execution walkthrough
 
-## Visual system map
-
-The diagram below is specific to this capability. It shows the real components and artifacts involved rather than a generic agent loop.
-
-![Hermes Agent Skill Authoring system map](assets/system-map.svg)
-
-## Operation sequence
-
-![Hermes Agent Skill Authoring actor and data sequence](assets/operation-sequence.svg)
-
-1. Identify requests that should trigger the skill
-2. Define the narrow capability boundary
-3. Write precise name and trigger description
-4. Encode imperative operating steps
-5. Add only necessary resources
-6. Validate metadata structure and examples
-
-See [How it works](docs/HOW-IT-WORKS.md) for the component-by-component walkthrough and evidence model.
-
-## Example visual output
-
-![Illustrative output produced by Hermes Agent Skill Authoring](assets/example-output.svg)
-
-This is an explanatory mockup of the output shape—not fabricated proof that a live run occurred. The labels show the information a real result should expose for review.
-
-## Decision and stop conditions
-
-![Decision guide for Hermes Agent Skill Authoring](assets/decision-guide.svg)
-
-## Inputs
-
-- A user goal with explicit authority and boundaries
-- Available tools, artifacts, and current state
-- Approval requirements and success criteria
-
-## Outputs
-
-- A durable workflow or agent-ready artifact
-- Visible approval and safety boundaries
-- Deterministic evidence of completion or a clear stop reason
+1. **Identify requests that should trigger the skill**
+2. **Define the narrow capability boundary**
+3. **Write precise name and trigger description**
+4. **Encode imperative operating steps**
+5. **Add only necessary resources**
+6. **Validate metadata structure and examples**
 
 ## Example request
 
 > For a bounded, reversible task, create focused Hermes SKILL.md packages with valid metadata and reusable workflows. Return the result, the evidence used to verify it, and any limitations or actions that still require approval.
 
-More scenarios and expected results are in [Examples](docs/EXAMPLES.md).
+## Evidence contract
 
-## Safety and trust model
+- `request.json` — captures request.
+- `inspection.json` — captures inspection.
+- `preview.json` — captures preview.
+- `execution.json` — captures execution.
+- `verification.json` — captures verification.
+- `receipt.json` — captures receipt.
 
-This workflow may create or change artifacts, so consequential actions require a preview and explicit authorization. It must stop when ownership, authorization, target state, or publication safety is ambiguous. Never place credentials, private endpoints, personal data, or environment-specific secrets in the skill package or its evidence.
+A run is complete only when the final artifact can be reopened or re-read and compared with the requested acceptance criteria. An attempted command or successful API response alone is not sufficient proof.
 
-Read [SAFETY.md](SAFETY.md) and [SECURITY.md](SECURITY.md) before connecting the workflow to real accounts, devices, repositories, or production data.
+## Safety boundaries
 
-## What this repository does not claim
+- Confirm the exact target, owner, environment, and authority before acting.
+- Preview consequential changes and pause at the approval gate.
+- Keep credentials, personal data, and private endpoints out of logs and examples.
+- Preserve user work and avoid unrelated changes.
+- Report verification failures as incomplete work.
 
-- It does not expand user authority, conceal side effects, or treat unverified output as complete.
-- It is not a hosted service, executable application, or vendor endorsement.
-- It does not include credentials, private infrastructure, or the original personal AI-OS configuration.
-- A successful example does not prove production readiness for every environment.
+Read [SAFETY.md](SAFETY.md), [SECURITY.md](SECURITY.md), and the detailed [How it works](docs/HOW-IT-WORKS.md) guide before connecting this workflow to a real service or production environment.
 
-## Repository map
+## Repository contents
 
 | Path | Purpose |
 | --- | --- |
-| `SKILL.md` | Concise trigger conditions and operating workflow used by an agent. |
-| `docs/PRODUCT.md` | Problem framing, audience, boundaries, and readiness model. |
-| `docs/HOW-IT-WORKS.md` | Expanded walkthrough with diagrams and verification points. |
-| `docs/EXAMPLES.md` | Realistic safe, review-only, and stop-condition scenarios. |
-| `docs/RELEASE.md` | Checks to complete before publishing a revision. |
-| `assets/system-map.svg` | Capability-specific block, graph, stack, loop, or canvas architecture. |
-| `assets/operation-sequence.svg` | Actor and data sequence using the skill’s real stages. |
-| `assets/example-output.svg` | Illustrated mockup of the artifact or interface a run should produce. |
-| `assets/decision-guide.svg` | Capability-specific decisions, approval boundaries, and stop states. |
-| `tests/README.md` | Manual contract and package validation guidance. |
+| `SKILL.md` | Trigger conditions and concise agent workflow. |
+| `assets/system-blueprint.png` | High-resolution technical architecture poster. |
+| `docs/HOW-IT-WORKS.md` | Component and execution-stage details. |
+| `docs/EXAMPLES.md` | Safe, review-only, and failure scenarios. |
+| `docs/PRODUCT.md` | Audience, problem statement, and maturity. |
 | `SAFETY.md` / `SECURITY.md` | Operational and disclosure boundaries. |
+| `tests/README.md` | Contract and package validation guidance. |
 
-## Use this package
+## Maturity
 
-1. Read `SKILL.md` and confirm its trigger matches your task.
-2. Copy the package into the skill location supported by your agent environment, or use it as a reference when authoring an equivalent workflow.
-3. Replace tool assumptions with the tools actually available to you; do not add secrets to the repository.
-4. Run the smallest safe example from `docs/EXAMPLES.md`.
-5. Record verification evidence and review any consequential action before widening scope.
+This is a public reference workflow extracted from a larger private workbench. It does not include a hosted runtime, credentials, or private infrastructure. Adopters must connect compatible tools and validate behavior in their own environment.
 
 ## Contributing
 
-Improvements are welcome when they preserve narrow scope, honest capability claims, safe defaults, and reproducible verification. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions should improve capability accuracy, safe defaults, reproducible examples, or verification evidence without broadening the skill beyond its stated purpose. See [CONTRIBUTING.md](CONTRIBUTING.md).
