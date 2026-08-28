@@ -1,0 +1,85 @@
+{
+  "protocol_version": "0.1",
+  "skill": {
+    "id": "hermes-skill-hermes-agent-skill-authoring",
+    "display_name": "Hermes Agent Skill Authoring",
+    "description": "Create focused Hermes SKILL.md packages with valid metadata and reusable workflows."
+  },
+  "task_profile": {
+    "category": "agent",
+    "architecture": "stack",
+    "artifact": "skill",
+    "inputs": [
+      "User trigger examples",
+      "Skill contract"
+    ],
+    "outputs": [
+      "Validation package",
+      "name",
+      "description",
+      "workflow",
+      "safety gates"
+    ]
+  },
+  "modules": {
+    "memory": {
+      "strategy": "layered_working_context",
+      "responsibility": "Retain user trigger examples plus decisions, observations, and verification evidence needed to resume safely."
+    },
+    "planning": {
+      "strategy": "layered_specification_plan",
+      "responsibility": "Transform skill contract into the ordered, bounded stages defined by this skill."
+    },
+    "action": {
+      "strategy": "scope_plan_execute_verify_receipt",
+      "responsibility": "Advance the workflow through skill.md frontmatter while preserving stop conditions and user authority."
+    },
+    "capability": {
+      "strategy": "task_conditioned_minimum_capability_set",
+      "responsibility": "Select the smallest compatible skill and tool set while preserving approval and verification boundaries."
+    }
+  },
+  "execution": {
+    "stages": [
+      "Identify requests that should trigger the skill",
+      "Define the narrow capability boundary",
+      "Write precise name and trigger description",
+      "Encode imperative operating steps",
+      "Add only necessary resources",
+      "Validate metadata structure and examples"
+    ],
+    "gates": [
+      "scope_and_authority_confirmed",
+      "capability_and_dependency_preflight",
+      "consequential_action_previewed_when_applicable",
+      "output_reopened_and_verified"
+    ]
+  },
+  "verification": {
+    "evidence": [
+      "name",
+      "description",
+      "workflow",
+      "safety gates"
+    ],
+    "metrics": [
+      "task_success",
+      "verification_pass_rate",
+      "tool_error_rate",
+      "repair_count",
+      "latency_ms",
+      "estimated_cost_usd"
+    ]
+  },
+  "failure_policy": {
+    "max_repairs": 2,
+    "schema_error": "repair_then_stop",
+    "permission_error": "stop_without_retry",
+    "verification_failure": "report_incomplete"
+  },
+  "maturity": {
+    "level": "executable_contract",
+    "runtime_scope": "validation_and_dry_run_planning",
+    "claim_boundary": "This repository validates and plans the harness contract; it does not claim live service execution or benchmark gains without a connected adapter and measured evidence."
+  }
+}

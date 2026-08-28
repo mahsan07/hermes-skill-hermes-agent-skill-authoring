@@ -18,3 +18,9 @@ Author compact, reusable Hermes `SKILL.md` packages. Keep triggering metadata pr
 7. Remove personal names, private endpoints, credentials, and environment-specific assumptions before sharing.
 
 Keep the core body under 500 lines and avoid README-like process history inside the skill itself.
+
+<!-- JIT-HARNESS:START -->
+## Harness contract
+
+For runtime adaptation or benchmarking, read [docs/JIT-HARNESS.md](docs/JIT-HARNESS.md) and validate [harness/manifest.json](harness/manifest.json). Treat the manifest as a planning and verification contract, not as authority to invoke tools. Preserve the skill's existing approval boundaries, stop on permission ambiguity, and do not claim successful execution without re-reading the resulting artifact or state.
+<!-- JIT-HARNESS:END -->
